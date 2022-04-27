@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend</title>
+    <style>
+    #parent>div{
+        width: 60%;
+        margin: auto;
+        padding: 5px;    
+    }
+    #form{
+        width: 100%;
+        padding: 5px;
+        display: block;
+        /* margin: 20px auto; */
+
+    }
+    #form>input{
+        width: 100%;
+        padding: 5px;
+        margin: 10px auto;
+    }
+    
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <div>
+            <form id="form">
+                <input type="text" placeholder="image" id="imgUrl">
+                <input type="text" placeholder="name" id="invname">
+                <input type="text" placeholder="role" id="invrole">
+                <input type="text" placeholder="logo" id="cLogo">
+                <input type="submit" name="" id="">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    document.querySelector("#form").addEventListener("submit",investorpage);
+
+    var invArr= JSON.parse(localStorage.getItem("investorAr")) || [];
+
+    function investorpage(){
+
+        event.preventDefault();
+
+        var invObj = {
+            img : form.imgUrl.value,
+            name: form.invname.value,
+            role: form.invrole.value,
+            logo: form.cLogo.value
+        }
+
+        invArr.push(invObj);
+
+        localStorage.setItem("investorAr",JSON.stringify(invArr));
+
+        
+    }
+</script>
